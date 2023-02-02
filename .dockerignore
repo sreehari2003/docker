@@ -1,0 +1,7 @@
+node_modules
+src
+.dockerignore
+.git
+.gitignore
+.prettierrc
+.eslintignore

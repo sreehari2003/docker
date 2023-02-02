@@ -1,0 +1,13 @@
+version: "3"
+# service is meant to describe the docker services cureently running
+services:
+  node-app:
+  # means docker build
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+        - ./:/app
+        - /app/node_modules
+    env_file:
+      - ./.env
