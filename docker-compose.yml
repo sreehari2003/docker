@@ -3,7 +3,10 @@ version: "3"
 services:
   node-app:
   # means docker build
-    build: .
+    build:
+      context: .
+      args:
+        NODE_ENV: development
     ports:
       - "3000:3000"
     volumes:
@@ -11,3 +14,13 @@ services:
         - /app/node_modules
     env_file:
       - ./.env
+  db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=SREEHARI
+      - MONGO_INITDB_ROOT_PASSWORD=123456789
+    volumes:
+      - monogo_db:/data/db
+## refering the named mongodb volume globally
+volumes:
+  mongo_db:      
